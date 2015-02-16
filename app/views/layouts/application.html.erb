@@ -2,13 +2,35 @@
 <html>
 <head>
   <title>Fivily</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-5 line"><hr /></div>
+      <div class="col-xs-2"><h1 class="text-uppercase big">Fivily</h1></div>
+      <div class="col-xs-5 line"><hr /></div>
+    </div> <!-- .row for h1-->
+    <div class="row">
+      <h2 class="text-uppercase small">Nunc pellentesque enim id felis varius</h2> 
+    </div> <!-- .row for h2 -->
+  </div> <!-- .container -->
+</header>
+
+<div id="content" class="container">
 <%= yield %>
+</div>
+
+<footer class="footer text-uppercase text-center">
+  <p>2015 &mdash; Dunan Kintaya, Captain Morgante &amp; Jennergy</p>
+</footer>
 
 </body>
 </html>

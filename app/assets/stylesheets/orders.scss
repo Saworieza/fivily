@@ -1,3 +1,51 @@
 // Place all the styles related to the Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,300,700);
+
+/* Default blocks */
+
+body { 
+  font-family: 'Lato', sans-serif;
+}
+
+.header {
+  margin: 0;
+  padding: 3em 0;
+  min-height: 20vh; /* 20% of screen height */
+  color: #fff;
+  text-align: center;
+  background-image: url('pisang-manis-header.jpg');
+  background-size: cover;
+
+  h1 {
+    margin: 0; /* get rid of whitespace at top */
+  }
+
+  .line { /* for the <hr> divs*/
+    white-space: no-wrap;
+    overflow: hidden;
+  }
+
+  h1#old {
+    margin: 0; /* get rid of the space at the top */
+    display: inline-block;
+    border: 2px solid;
+    border-radius: 0.4em;
+    padding: 0.5em 1em;
+  }
+}
+
+.footer {
+  margin: 2em 0 0 0;
+  padding: 5em 0;
+  background: #333;
+  color: #aaa;
+}
+
+#content {
+}
