@@ -1,13 +1,17 @@
 # READ ME
 
-## New rails app called Fivily 
+## Set up
+
+Let's get this show on the road...
+
+### New rails app called Fivily 
 ```bash
 rails new fivily --database=postgresql
 
 cd fivily
 ```
 
-## Add to Gemfile
+### Add to Gemfile
 
 ```bash
 nano Gemfile 
@@ -24,7 +28,7 @@ gem 'cowsay'
 bundle install
 ```
 
-## Create models and controllers
+### Create models and controllers
 
 ```ruby
 rails g model type name:string
@@ -46,7 +50,7 @@ rake db:create
 rake db:migrate
 ```
 
-## Seeds
+### Seeds
 
 ```bash
 rake db:seed
@@ -64,3 +68,16 @@ Type.all.count
 ```
 
 There should be 13 items and 4 types.
+
+### Resources
+
+For grouping items in types:
+http://apidock.com/rails/Enumerable/group_by
+http://stackoverflow.com/questions/8046138/how-to-group-collection-by-columns-with-rails
+
+
+For changing the locale and setting currency conversion to IDR:
+http://stackoverflow.com/questions/7237592/number-to-currency-locale-converting
+
+For multiple models (in our case, two) in one form/controller:
+http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-fields_for
