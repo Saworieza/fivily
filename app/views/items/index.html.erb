@@ -10,20 +10,29 @@
 #(uses instance varialbes to do so? - maybe) -->
 
 
-<h2>Juices</h2>
 
-<% @juices.each do |i| %>
-  
-  <strong><%= i.name %></strong><br>
-  <%= i.description %><br>
-  <%= price_conversion(i.price)%> <br>
+<!-- 
+  get all items;  (@items)
+  group it by type_id;  (@items.group_by(&:type_id))
+  type is 1/2/3/4; 
+  items is the array of everything in the type (the group)
+-->
+<% @items.group_by(&:type_id).each do |type, items| %>
 
-<% end %>
+<!-- 
+  print out the type name by going into Type (types_helper) 
+-->
+  <h2><%= type_name(type) %></h2>
 
-<h2>Yummy Treats</h2>
+<!--
+  loop through all the items associated with the type_id
+  remember - @items is the instance variable, items is just a variable within this loop block
+-->
+  <% items.each do |i| %>
+    <p><strong><%= i.name %></strong> (<%= price_conversion(i.price) %>)
+      <br /> <%= i.description %>
+      <%= i.is_custom == true ? '<br /><ins>You can customise this product</ins>'.html_safe : nil %></p>
 
-<% @yummytreats.each do |i| %>
-<strong><%= i.name %></strong><br>
-<%= i.description %><br>
-<%= price_conversion(i.price)%> <br>
+  <% end %>
+
 <% end %>
