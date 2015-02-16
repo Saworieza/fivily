@@ -1,0 +1,8 @@
+idr:
+  number:
+    format:
+      unit: 'Rp.'
+      delimiter: '.'
+      separator: '.'
+      precision: 0
+      format: '%u %n'
