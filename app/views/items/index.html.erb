@@ -1,0 +1,29 @@
+<!-- #view/items/index.html.erb is where people view the menu and select their items 
+
+#it uses both items_controller and types_controller 
+
+#when the user clicks "proceed to checkout", it actually goes to the orders controller
+#and creates a new instance of the class order 
+# once the user clicks submit, it goes to the controller 
+#creates an order_id with customer name,
+#takes that order_id and populates the order_items table 
+#(uses instance varialbes to do so? - maybe) -->
+
+
+<h2>Juices</h2>
+
+<% @juices.each do |i| %>
+  
+  <strong><%= i.name %></strong><br>
+  <%= i.description %><br>
+  <%= price_conversion(i.price)%> <br>
+
+<% end %>
+
+<h2>Yummy Treats</h2>
+
+<% @yummytreats.each do |i| %>
+<strong><%= i.name %></strong><br>
+<%= i.description %><br>
+<%= price_conversion(i.price)%> <br>
+<% end %>

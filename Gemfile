@@ -2,8 +2,9 @@ source 'https://rubygems.org'
 
 gem 'devise'
 gem 'bootstrap-sass'
-gem 'awesome_print'
-gem 'cowsay'
+gem 'byebug'
+# gem 'awesome_print'
+# gem 'cowsay'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
