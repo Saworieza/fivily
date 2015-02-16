@@ -2,14 +2,14 @@
 
 ### Check list
 
-## Tuesday, 17 Feb 2015:
+#### Tuesday, 17 Feb 2015:
 
 * to-do:
   * model relationships (has_many etc)
   * place an order form (2 models, 1 controller)
     * figure out subtotals and pricing
 
-## Monday, 16 Feb 2015:
+#### Monday, 16 Feb 2015:
 
 * initial project proposal
   * read through user stories
