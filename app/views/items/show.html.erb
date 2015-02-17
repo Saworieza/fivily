@@ -1,0 +1,21 @@
+<h2><%= @item.name %> (<%= price_conversion(@item.price) %>)</h2>
+<h3><%= type_name(@item.type_id) %></h3>
+<p><%= @item.description %></p> 
+
+
+<%= form_for @order_item do |f| %>
+<div class="field">
+  <%= f.label :item_quantity %>
+  <%= f.text_field :item_quantity %>
+</div>
+
+<div class:"actions">
+  <%= f.submit %>
+</div>
+<% end %>
+
+
+
+
+<!-- <h2> Thank you! </h2> <br>
+<p> Your order has been created </p> -->

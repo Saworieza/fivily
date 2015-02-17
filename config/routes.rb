@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
   root 'items#index'
+  get 'orders/new' => 'order#new'
+  get 'orders/show' => 'orders#show'
+  get 'items/show' => 'items#show'
+  get 'items/:id' => 'items#show'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -7,7 +7,12 @@
 # once the user clicks submit, it goes to the controller 
 #creates an order_id with customer name,
 #takes that order_id and populates the order_items table 
-#(uses instance varialbes to do so? - maybe) -->
+#(uses instance varialbes to do so? - maybe)
+
+# put order now buttons next to each item 
+# or click into a show page for each item, change quantity, then place order 
+
+ -->
 
 
 <% @items.group_by(&:type_id).each do |type, items| %>
@@ -21,3 +26,7 @@
   <% end %>
 
 <% end %>
+
+<div>
+ <%= link_to 'Show', '/items/show' %>
+</div>
