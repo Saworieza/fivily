@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 
  # write before_actions
+ before_filter :authenticate_user!
  before_action :set_order, only: [:new, :create, :index]
  before_action :set_item, only: [:show, :create]
   
@@ -15,27 +16,9 @@ class ItemsController < ApplicationController
   end 
 
   def create 
-
-        #                              .       .
-        #                         / `.   .' \
-        #                 .---.  <    > <    >  .---.
-        #                 |    \  \ - ~ ~ - /  /    |
-        #                  ~-..-~             ~-..-~
-        #              \~~~\.'                    `./~~~/
-        #    .-~~^-.    \__/                        \__/
-        #  .'  O    \     /               /       \  \
-        # (_____,    `._.'               |         }  \/~~~/
-        #  `----.          /       }     |        /    \__/
-        #        `-.      |       /      |       /      `. ,~~|
-        #            ~-.__|      /_ - ~ ^|      /- _      `..-'   f: f:
-        #                 |     /        |     /     ~-.     `-. _||_||_
-        #                 |_____|        |_____|         ~ - . _ _ _ _ _>
-
-
     # creates new instance var called item which holds an item object which data is passed using the params
     # @item = @order.items.new(item_params)
     # byebug
-    
 
     if params[:quantity].to_i.times { @order.items << @item }
       redirect_to root_path
