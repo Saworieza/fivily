@@ -1,18 +1,6 @@
-<h1> My Orders <h1> 
+<h1> My Orders </h1> 
 
-<p> Find me in orders/index </p> 
-
-<p> Control me in orders_controller.rb (method:index) 
-
-view/orders = where the order comes in for Fivi 
-
-this actually has a list of just the orders and their respective details 
-
-you can click on 'show' for each order and it takes you to show.html.erb
-
-this page includes customer_id, date, price </p>
-
-<% @orders.each do |order| %> 
-  <%= order.comments %>
-
-<% end %> 
+<!-- need to get this guy to display only order for current user -->
+  <% @orders.each do |order| %> 
+   <%= order.subtotal %><br>
+  <% end %>

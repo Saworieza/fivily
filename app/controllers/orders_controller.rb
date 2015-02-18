@@ -22,6 +22,10 @@ class OrdersController < ApplicationController
     Order.create(items: params[:item_id])
   end 
 
+  def totalprics 
+
+  end 
+
 #this is where the order goes once it has been submitted? 
 #it takes the items in the order and populates the order items model 
 #it somehow then packages all the "order items" into 1 "order"

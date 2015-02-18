@@ -13,33 +13,53 @@
 # or click into a show page for each item, change quantity, then place order 
 
  -->
-<h2> Your Order </h2>
 
-<h4> Items </h4> 
-  <% @order.items.each do |item| %>
-  <%= item.name %> <br>
-  <% end %>
-<p> 
-<p> number of items: <%= @order.items.count %> </p>
-<p> subtotal (<%= @order.subtotal %>) </p>
+<% if @items.count > 0 %>
 
- <br />
- <br />
-<%-# link_to "New order", new_order_path, class: 'btn btn-lg btn-success' %>
-<br />
-<br />
-<br />
+  <h2> Your Order </h2>
+   
+  <table class = "table table-striped">
+    <thead>
+      <tr> 
+        <th> Item Name </th>
+        <th> Price </th>
+        <th colspan="3"></th> 
+      </tr>
+    </thead>  
+    <tbody> 
+      <% @order.items.each do |item| %>
+        <tr> 
+          <td><%= item.name %></td>
+          <td><%= item.price %></td>
+          <td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<% @items.group_by(&:type_id).each do |type, items| %>
-  
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Subtotal</h3>
+  </div>
+  <div class="panel-body">
+    <%= @order.subtotal %>
+  </div>
+</div>
 
-  <% items.each do |item| %>
+  <%= link_to 'Checkout', new_order_path, class: 'btn btn-primary' %>
+
+  <h2> Add Items to your order! </h2>
+
+<% else %>
+
+  <h2>Get started by adding an individual item to your order </h2> 
+
+<% end %>
+
+
+  <% @items.each do |item| %>
     <p><strong><%= item.name %></strong> (<%= price_conversion(item.price) %>)
       <br /> <%= item.description %>
       <%= item.is_custom == true ? '<br /><ins>You can customise this product</ins>'.html_safe : nil %></p>
-      <%= link_to 'View Item', item_path(item), class: 'btn btn-success' %>
+      <%= link_to 'Add Item', item_path(item), class: 'btn btn-success' %>
   <% end %>
-<div>
- 
-</div>
-<% end %> 

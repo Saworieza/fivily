@@ -2,12 +2,21 @@
 
 ### Check list
 
-#### Tuesday, 17 Feb 2015:
+#### Wednesday 18 Feb - MKM notes
+* issues: 
+  * the menu runs through the items loop twice for each type - FIXED! 
+  * when you click on 'checkout', the items data disappers 
+    => In orders#index, we can get the subtotals to display 
+    => But everyone user's info is there
+  * Everything involving totalprics is wrong/scratch work
+  * Need to compile total price data and send to expenserizer
+
+#### Tuesday, 17 Feb 2015: 
 
 * to-do:
-  * model relationships (has_many etc)
-  * place an order form (2 models, 1 controller)
-    * figure out subtotals and pricing
+  * model relationships (has_many etc) - CHECK! 
+  * place an order form (2 models, 1 controller) - IDK? 
+    * figure out subtotals and pricing - CHECK!
 
 #### Monday, 16 Feb 2015:
 

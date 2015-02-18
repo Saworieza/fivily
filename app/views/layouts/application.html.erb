@@ -20,7 +20,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-          <%= link_to 'Fivily Menu', root_path, class: 'navbar-brand' %>
+          <%= link_to 'Menu', root_path, class: 'navbar-brand' %>
+          <%= link_to 'My Orders', orders_path, class: 'navbar-brand' %>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
@@ -28,8 +29,8 @@
             <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
             <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
           <% else %>
-            <li><%= link_to 'Join', new_user_registration_path, class: 'btn btn-success'%></li>
-            <li><%= link_to 'Login', new_user_session_path, class: 'btn btn-success'%></li>
+            <li><%= link_to 'Join', new_user_registration_path %></li>
+            <li><%= link_to 'Login', new_user_session_path%></li>
           <% end %> 
         </ul> 
       </div> 
@@ -50,7 +51,7 @@
       <div class="col-xs-5 line"><hr /></div>
     </div> <!-- .row for h1-->
     <div class="row">
-      <h2 class="text-uppercase small">Order Balinese food so good it will blow your mind and change your perspective on the universe and life as we know it</h2> 
+      <h2 class="text-uppercase small">Indonesian food so good it will blow your mind and change your perspective on the universe and life as we know it</h2> 
     </div> <!-- .row for h2 -->
   </div> <!-- .container -->
 </header>

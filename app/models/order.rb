@@ -10,4 +10,8 @@ class Order < ActiveRecord::Base
     #@invoices_1_week.sum("total")
     items.sum("price")
   end
+
+  def totalprics 
+    subtotal.to_i * 1.15 
+  end 
 end
