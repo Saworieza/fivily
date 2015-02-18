@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def index 
-    @orders = Orders.all 
+    @orders = Order.all 
   end 
 
 #this obviously is not right 
@@ -9,16 +9,17 @@ class OrdersController < ApplicationController
     @order_items = Order(params :id)
   end 
 
+  def new 
+    @order = Order.create
+  end 
+  
   def create 
     #incomplete method
-    Order.create(items: params[:item_id])
-  end 
-
-  def create 
     #needs to take all the 
     #even though it's in a different view 
     #this is how you add all the items to your order 
     #when you click "proceed to checkout"
+    Order.create(items: params[:item_id])
   end 
 
 #this is where the order goes once it has been submitted? 

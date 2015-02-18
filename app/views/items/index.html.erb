@@ -24,10 +24,11 @@
     <p><strong><%= i.name %></strong> (<%= price_conversion(i.price) %>)
       <br /> <%= i.description %>
       <%= i.is_custom == true ? '<br /><ins>You can customise this product</ins>'.html_safe : nil %></p>
+      <%= link_to 'Add to order', '/items/new' %>
   <% end %>
-
-<% end %>
-
 <div>
- <%= link_to 'Show', '/items/show' %>
+  <%= link_to "New order", new_order_path %>
+  <%= link_to "Add Item to Order!", new_item_path %>
+ 
 </div>
+<% end %> 

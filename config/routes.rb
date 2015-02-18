@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root 'items#index'
   resources :items 
-  resources :order_item
-  get 'orders/new' => 'order#new'
-  get 'orders/show' => 'orders#show'
-  get 'items/show' => 'items#show'
-  get 'items/:id' => 'order_item#show'
+  resources :orders
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
