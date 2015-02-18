@@ -18,7 +18,8 @@
 <% @items.group_by(&:type_id).each do |type, items| %>
   
   <h2><%= type_name(type) %></h2>
-  
+
+
   <% items.each do |i| %>
     <p><strong><%= i.name %></strong> (<%= price_conversion(i.price) %>)
       <br /> <%= i.description %>
