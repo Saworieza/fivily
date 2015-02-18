@@ -13,22 +13,33 @@
 # or click into a show page for each item, change quantity, then place order 
 
  -->
+<h2> Your Order </h2>
 
+<h4> Items </h4> 
+  <% @order.items.each do |item| %>
+  <%= item.name %> <br>
+  <% end %>
+<p> 
+<p> number of items: <%= @order.items.count %> </p>
+<p> subtotal (<%= @order.subtotal %>) </p>
+
+ <br />
+ <br />
+<%-# link_to "New order", new_order_path, class: 'btn btn-lg btn-success' %>
+<br />
+<br />
+<br />
 
 <% @items.group_by(&:type_id).each do |type, items| %>
   
-  <h2><%= type_name(type) %></h2>
 
-
-  <% items.each do |i| %>
-    <p><strong><%= i.name %></strong> (<%= price_conversion(i.price) %>)
-      <br /> <%= i.description %>
-      <%= i.is_custom == true ? '<br /><ins>You can customise this product</ins>'.html_safe : nil %></p>
-      <%= link_to 'Add to order', '/items/new' %>
+  <% items.each do |item| %>
+    <p><strong><%= item.name %></strong> (<%= price_conversion(item.price) %>)
+      <br /> <%= item.description %>
+      <%= item.is_custom == true ? '<br /><ins>You can customise this product</ins>'.html_safe : nil %></p>
+      <%= link_to 'View Item', item_path(item), class: 'btn btn-success' %>
   <% end %>
 <div>
-  <%= link_to "New order", new_order_path %>
-  <%= link_to "Add Item to Order!", new_item_path %>
  
 </div>
 <% end %> 

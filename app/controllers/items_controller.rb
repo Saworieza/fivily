@@ -1,35 +1,51 @@
 class ItemsController < ApplicationController
 
-# write before_actions
+ # write before_actions
+ before_action :set_order, only: [:new, :create, :index]
+ before_action :set_item, only: [:show, :create]
+  
 
   def index 
     @items = Item.all
   end 
 
-
   def new 
-#the method that makes you could create new order which items can be added to it
-    @order = Order.create
+    #the method that makes you could create new order which items can be added to it
     @item = @order.items.new
   end 
 
   def create 
-     @item = Item.new(item_params) #creates new instance var called item which holds an item object which data is passed using the params
 
-    respond_to do |format| 
-      if @item.save #if the item want to be saved in html format, redirect to the root path and give notification 'item was succesfully created' and rendering to json format
-        format.html { redirect_to items_path, notice: 'Item was successfully created.'}
-        format.json { render :show, status: :created, location: @item } #
-      else # 
+        #                              .       .
+        #                         / `.   .' \
+        #                 .---.  <    > <    >  .---.
+        #                 |    \  \ - ~ ~ - /  /    |
+        #                  ~-..-~             ~-..-~
+        #              \~~~\.'                    `./~~~/
+        #    .-~~^-.    \__/                        \__/
+        #  .'  O    \     /               /       \  \
+        # (_____,    `._.'               |         }  \/~~~/
+        #  `----.          /       }     |        /    \__/
+        #        `-.      |       /      |       /      `. ,~~|
+        #            ~-.__|      /_ - ~ ^|      /- _      `..-'   f: f:
+        #                 |     /        |     /     ~-.     `-. _||_||_
+        #                 |_____|        |_____|         ~ - . _ _ _ _ _>
 
-        format.html { render :new }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
+
+    # creates new instance var called item which holds an item object which data is passed using the params
+    # @item = @order.items.new(item_params)
+    # byebug
+    
+
+    if params[:quantity].to_i.times { @order.items << @item }
+      redirect_to root_path
+    else 
+      render item_path(@item)
     end
-    # @order_item = OrderItem.new(order_item_params)
-    #this is how you save the item to the order_items model 
-
   end 
+
+  def show
+  end
 
   def subtotal
 
@@ -39,10 +55,20 @@ class ItemsController < ApplicationController
 #this is the information for how the menu gets populated?
 #from the item/type models to the items/index.html.erb view 
 #but put the calculations in helpers 
+private
 
-  # private
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
-  # def order_item_params
-  #   params.require(:item).permit(:quantity)
-  # end
+  def set_order 
+    @order = current_user.orders.first || current_user.orders.create 
+  end 
+
+
+  def item_params
+    params.require(:item).permit(:quantity, :description)
+  end
+
+
 end

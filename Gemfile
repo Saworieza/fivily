@@ -5,7 +5,6 @@ gem 'bootstrap-sass'
 gem 'awesome_print'
 gem 'cowsay'
 gem 'json'
-gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
