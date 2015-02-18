@@ -25,6 +25,10 @@
     * used a helper to grab the name from the `Type` table (types_helper)
     * used groups and loops for DRY (items#index)
 
+### Guide
+
+User is taken to a page showing the whole menu (items#index). They can click on each individual item (items/:id and items#show) 
+
 ### Set up
 
 Let's get this show on the road...

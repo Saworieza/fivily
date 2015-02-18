@@ -8,10 +8,11 @@ class ItemsController < ApplicationController
 
   def show 
     @item = Item.find(params[:id])
-    @order_item = OrderItem.new (order_item_params)
+    @order_item = OrderItem.new
   end 
 
   def create 
+    # @order_item = OrderItem.new(order_item_params)
     #this is how you save the item to the order_items model 
 
   end 
@@ -23,10 +24,9 @@ class ItemsController < ApplicationController
 #from the item/type models to the items/index.html.erb view 
 #but put the calculations in helpers 
 
-  private
+  # private
 
-  def order_item_params
-    byebug
-    params.require(:order_item).permit(:quantity)
-  end
+  # def order_item_params
+  #   params.require(:item).permit(:quantity)
+  # end
 end
