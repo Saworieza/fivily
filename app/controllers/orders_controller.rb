@@ -33,7 +33,6 @@ class OrdersController < ApplicationController
   end 
 
   def totalprics 
-
   end 
 
 #this is where the order goes once it has been submitted? 
