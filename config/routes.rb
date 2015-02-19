@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items 
   resources :orders
+  get 'orders/new/:order_id' => 'orders#new'
+  get 'orderplaced' => 'orders#create'
+
   get 'test/api' => 'expense#create_expense'
   get 'allmymoney' => 'expense#get_all_expenses'
   # The priority is based upon order of creation: first created -> highest priority.

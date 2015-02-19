@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+# before_action :set_order, only: [:update]
 
   def index 
     @orders = Order.all 
@@ -6,20 +7,28 @@ class OrdersController < ApplicationController
 
 #this obviously is not right 
   def show 
-    @order_items = Order(params :id)
+#    @order_items = Order(params :id)
   end 
 
   def new 
-    @order = Order.create
+    @order = Order.find(params[:order_id])
+    @items = @order.items
+    # @order_items = OrderItem.where("order_id=?", )
   end 
   
   def create 
-    #incomplete method
-    #needs to take all the 
-    #even though it's in a different view 
+
     #this is how you add all the items to your order 
-    #when you click "proceed to checkout"
-    Order.create(items: params[:item_id])
+    #when you click "place order" 
+
+
+#    Order.where(:id => order.id).update_all(({:total_prics => @st}))
+    # order_params 
+ #   Order.create(items: params[:item_id])
+
+  end 
+
+  def update 
   end 
 
   def totalprics 
@@ -34,6 +43,15 @@ class OrdersController < ApplicationController
 
 #research how to get 2 controllers talking to 1 model 
 #and how to output those 2 controllers to the same view 
+  private 
+
+  # def set_order
+  #   @order = Order.find(params[:id])
+  # end 
+
+    def order_params 
+      params.require(:order).permit(:total_prics, :comments, :date, :user_id)
+    end   
 
 
 

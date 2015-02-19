@@ -7,7 +7,7 @@
     </tr>
   </thead>  
   <tbody> 
-    <% @order.items.each do |item| %>
+    <% @items.each do |item| %>
       <tr> 
         <td><%= item.name %></td>
         <td><%= item.price %></td>
@@ -22,7 +22,7 @@
    <h3 class="panel-title">Subtotal</h3>
   </div>
   <div class="panel-body">
-    <%= @order.subtotal %>
+    <%= pricsgalore = @order.items.sum("price") %>
   </div>
 </div>
 
@@ -40,21 +40,22 @@
 
 
 
-<div class="field">
-  <%= f.label :date %><br>
-  <%= f.datetime_field :date %>
-</div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.datetime_select :date %>
+  </div>
 
-<div class="field">
-    <%= f.label :comments %><br>
-    <%= f.text_field :comments %>
-</div> 
+  <div class="field">
+      <%= f.label :comments %><br>
+      <%= f.text_field :comments %>
+  </div> 
 
-<div class="field">
-  <strong>Delivery Address<strong></br><input type="text">
-</div>
-<br>
+  <div class="field">
+    <strong>Delivery Address<strong></br><input type="text">
+  </div>
+  <br>
+  <%= f.hidden_field :totalprics, :value => pricsgalore %>
+  <%= f.submit 'Place Order', class: 'btn btn-primary' %>
 
-<%= link_to 'Place Order', new_order_path, class: 'btn btn-primary' %>
 
 <% end %>

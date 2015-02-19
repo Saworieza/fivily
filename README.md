@@ -5,11 +5,21 @@
 #### Wednesday 18 Feb - MKM notes
 * issues: 
   * the menu runs through the items loop twice for each type - FIXED! 
-  * when you click on 'checkout', the items data disappers 
+  * when you click on 'checkout', the items data disappers - FIXED! 
     => In orders#index, we can get the subtotals to display 
     => But everyone user's info is there
-  * Everything involving totalprics is wrong/scratch work
-  * Need to compile total price data and send to expenserizer
+  * Need to compile total prics data - FIXED
+
+TH 2/19
+* to do
+  * add some controller methods so that when orders gets updated with total prics, it also sends total prics to expenserizer 
+  * reroute view after order is created to "success" page (display order details on that)
+* nice to have: 
+ * send e-mail confirmation to fivi when order is placed 
+ * send e-mail confirmation to user when order is placed 
+ * add ability for fivi to change order status from (in progress to fulfilled)
+ * add an admin dashboard that shows all orders 
+ * add a user dashboard that shows just that users orders 
 
 #### Tuesday, 17 Feb 2015: 
 
