@@ -2,6 +2,8 @@
 
 ### Check list
 
+# 
+
 #### Wednesday 18 Feb - MKM notes
 * issues: 
   * the menu runs through the items loop twice for each type - FIXED! 
