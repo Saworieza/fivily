@@ -5,6 +5,7 @@ gem 'bootstrap-sass'
 gem 'awesome_print'
 gem 'cowsay'
 gem 'json'
+gem 'bootstrap_form'
 # Generate http request 
 gem 'typhoeus'
 

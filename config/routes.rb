@@ -3,12 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
   resources :items 
+   get 'orders/new/:order_id' => 'orders#new', as: :place_order
   resources :orders
-  get 'orders/new/:order_id' => 'orders#new'
-  get 'orderplaced' => 'orders#create'
-
-  get 'test/api' => 'expense#create_expense'
-  get 'allmymoney' => 'expense#get_all_expenses'
+  # get 'orderplaced' => 'orders#create'
+  # get 'test/api' => 'expense#create_expense'
+  # get 'allmymoney' => 'expense#get_all_expenses'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

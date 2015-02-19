@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-# before_action :set_order, only: [:update]
+ before_action :set_order, only: [:update]
 
   def index 
     @orders = Order.all 
@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
 
 #this obviously is not right 
   def show 
-#    @order_items = Order(params :id)
+#    
   end 
 
   def new 
@@ -22,13 +22,14 @@ class OrdersController < ApplicationController
     #when you click "place order" 
 
 
-#    Order.where(:id => order.id).update_all(({:total_prics => @st}))
     # order_params 
  #   Order.create(items: params[:item_id])
 
   end 
 
   def update 
+    @order.update(order_params)
+    redirect_to root_path, notice: 'Order was successfully created!' 
   end 
 
   def totalprics 
@@ -45,14 +46,12 @@ class OrdersController < ApplicationController
 #and how to output those 2 controllers to the same view 
   private 
 
-  # def set_order
-  #   @order = Order.find(params[:id])
-  # end 
+  def set_order
+    @order = Order.find(params[:id])
+  end 
 
     def order_params 
       params.require(:order).permit(:total_prics, :comments, :date, :user_id)
     end   
-
-
 
 end

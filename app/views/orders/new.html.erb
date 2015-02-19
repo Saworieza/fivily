@@ -26,7 +26,7 @@
   </div>
 </div>
 
-<%= form_for @order do |f| %>
+<%= bootstrap_form_for @order do |f| %>
 <% if @order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -38,23 +38,16 @@
     </div>
   <% end %>
 
-
-
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.datetime_select :date %>
+    <%= f.date_select :date %>
   </div>
 
   <div class="field">
-      <%= f.label :comments %><br>
       <%= f.text_field :comments %>
   </div> 
 
-  <div class="field">
-    <strong>Delivery Address<strong></br><input type="text">
-  </div>
   <br>
-  <%= f.hidden_field :totalprics, :value => pricsgalore %>
+  <%= f.hidden_field :total_prics, :value => pricsgalore %>
   <%= f.submit 'Place Order', class: 'btn btn-primary' %>
 
 
