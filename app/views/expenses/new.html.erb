@@ -1,0 +1,8 @@
+
+<%= form_tag("/expenses", method: "post") do %>
+  <%= label_tag :date %>
+  <%= text_field_tag :date %>
+  <%= label_tag :amount %>
+  <%= number_field_tag :amount %>
+  <%= submit_tag("SUBMIT TO THE CLOUD") %>
+<% end %>
