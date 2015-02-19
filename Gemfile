@@ -5,6 +5,8 @@ gem 'bootstrap-sass'
 gem 'awesome_print'
 gem 'cowsay'
 gem 'json'
+# Generate http request 
+gem 'typhoeus'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
