@@ -1,0 +1,6 @@
+<% @items.each do |item| %>
+  <p><strong><%= item.name %></strong> (<%= price_conversion(item.price) %>)
+    <br /> <%= item.description %>
+    <%=item.is_custom == true ? '<br /><ins>You can customise this product</ins>'.html_safe : nil %></p>
+    <%= link_to 'Add Item', item_path(item), class: 'btn btn-success' %><br>
+<% end %>

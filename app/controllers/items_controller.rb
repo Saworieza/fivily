@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-
  # write before_actions
  before_filter :authenticate_user!
  before_action :set_order, only: [:new, :create, :index]
@@ -13,6 +12,10 @@ class ItemsController < ApplicationController
   def new 
     #the method that makes you could create new order which items can be added to it
     @item = @order.items.new
+  end 
+
+  def edit
+    @item = Item.find(params[:id])
   end 
 
   def create 

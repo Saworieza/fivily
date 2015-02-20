@@ -13,8 +13,19 @@
 # or click into a show page for each item, change quantity, then place order 
 
  -->
+
+
 <h2>Your Order (#<%= @order.id %>)</h2>
- 
+
+<% if current_user.role == "admin" %>
+<div class="container">
+  <div class="btn btn-warning" role="button">
+
+<%= link_to 'Orders', orders_path %>
+<% end %>
+  </div>
+</div>
+
 <table class = "table table-striped">
   <thead>
     <tr> 

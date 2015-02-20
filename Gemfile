@@ -6,6 +6,7 @@ gem 'awesome_print'
 gem 'cowsay'
 gem 'json'
 gem 'bootstrap_form'
+gem 'cancancan', '~> 1.9'
 # Generate http request 
 gem 'typhoeus'
 
