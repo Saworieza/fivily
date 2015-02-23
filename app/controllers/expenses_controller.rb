@@ -29,11 +29,20 @@ class ExpensesController < ApplicationController
     @expense = 1
   end
 
-  def create
+  def create_expense date, amount, category
     request = Typhoeus::Request.new('https://guarded-caverns-1459.herokuapp.com/api/v1/expenses',
       method: :post,
       headers: { name: @name, token: @token },
-      params: { date: params[:date], amount: params[:amount], category: 'ladyboys4eva'}
+      params: { date: date, amount: amount, category: category}
+      )
+    run_request(request)
+  end
+  
+  def create 
+    request = Typhoeus::Request.new('https://guarded-caverns-1459.herokuapp.com/api/v1/expenses',
+      method: :post,
+      headers: { name: @name, token: @token },
+      params: { date: params[:date], amount: params[:amount], category: params[:category]}
       )
     run_request(request)
   end
