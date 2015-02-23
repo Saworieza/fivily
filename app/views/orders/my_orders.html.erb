@@ -16,10 +16,16 @@
   <tbody> 
     <% @orders.each do |order| %>
       <tr> 
-        <td><%= order.date.strftime("%B %d") %></td>
+        <td><%= order.date.try(:strftime("%B %d")) %></td>
         <td><%= order.total_prics %></td>
         <td><%= order.comments %></td>
-        <td><%= order.status %></td>
+        <td><%= if order.status == false
+           "In progress"
+         elsif order.status == true 
+          "Fulfilled"
+        else 
+          "WTF is going on"
+        end  %></td>
         <td>
       </tr>
     <% end %>
