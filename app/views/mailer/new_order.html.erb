@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>New order!</h1>
+    <p><strong>Total items:</strong> <%= @items.count %></p>
+
+    <p>
+    <% @items.map(&:name).each do |name| %>
+      <%= name %><br />
+    <% end %>
+    </p>
+  </body>
+</html>

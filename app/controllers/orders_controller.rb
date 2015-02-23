@@ -45,7 +45,8 @@ class OrdersController < ApplicationController
 
   def update 
     @order.update(order_params)
-
+   
+    Mailer.new_order(@order).deliver_now
 
     redirect_to root_path, notice: 'Order was successfully created!' 
   end 
@@ -58,6 +59,7 @@ class OrdersController < ApplicationController
     @order.update_column(:status, true)
     expense = ExpensesController.new
     expense.create_expense(Time.now, @order.total_prics, 'screwboys2')
+
     redirect_to all_orders_path
   end
 
