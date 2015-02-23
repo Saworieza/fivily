@@ -1,32 +1,27 @@
-<table class = "table table-striped">
+<h2>Your Order (#<%= @order.id %>)</h2>
+
+<table class="table table-striped">
   <thead>
     <tr> 
-      <th> Item Name </th>
-      <th> Price </th>
-      <th colspan="3"></th> 
+      <th>Item Name</th>
+      <th>Price</th>
     </tr>
   </thead>  
   <tbody> 
     <% @items.each do |item| %>
       <tr> 
         <td><%= item.name %></td>
-        <td><%= item.price %></td>
-        <td>
+        <td><%= price_conversion(item.price) %></td>
       </tr>
     <% end %>
+    <tr>
+      <th>Subtotal</th>
+      <td><%= price_conversion(@prics_galore) %></td>
+    </tr>
   </tbody>
 </table>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-   <h3 class="panel-title">Subtotal</h3>
-  </div>
-  <div class="panel-body">
-    <%= pricsgalore = @order.items.sum("price") %>
-  </div>
-</div>
-
-<%= bootstrap_form_for @order do |f| %>
+<%= form_for @order, html: { class: 'form-horizontal' } do |f| %>
 <% if @order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -38,17 +33,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.date_select :date %>
+  <div class="form-group">
+    <%= f.label :date, "When would you like this delivered?", class: 'control-label col-xs-4' %>
+    <div class="col-xs-2">
+      <%= date_field("order", "date", { class: "form-control" } ) %>
+    </div>
   </div>
 
-  <div class="field">
-      <%= f.text_field :comments %>
-  </div> 
+  <div class="form-group">
+    <%= f.label :comments, "Any comments?", class: 'control-label col-xs-4' %>
+    <div class="col-xs-4">
+      <%= f.text_area :comments, cols: 30, rows: 10, class: 'form-control' %>
+    </div>
+  </div>
 
-  <br>
-  <%= f.hidden_field :total_prics, :value => pricsgalore %>
-  <%= f.submit 'Place Order', class: 'btn btn-primary' %>
-
+  <div class="text-center">
+  <%= f.hidden_field :total_prics, :value => @prics_galore %>
+  <%= f.submit 'Place Order', class: 'btn btn-primary btn-lg text-center' %>
+  </div>
 
 <% end %>

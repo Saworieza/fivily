@@ -1,6 +1,6 @@
 <h2><%= @item.name %></h2>
 <p> <%= @item.description %> </p>
-<p> <%= @item.price %> </p>
+<p> <%= price_conversion(@item.price) %> </p>
 
 <%= form_for @item, url: items_path(@item), method: :post do |f| %>
   <label>Quantity</label>

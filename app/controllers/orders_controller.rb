@@ -11,11 +11,14 @@ class OrdersController < ApplicationController
   end 
   def my_orders 
     @orders = current_user.orders
+
   end 
 
   def new 
     @order = Order.find(params[:order_id])
     @items = @order.items
+    @prics_galore = @order.items.sum("price")
+
     # @order_items = OrderItem.where("order_id=?", )
   end 
   

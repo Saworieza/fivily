@@ -31,13 +31,6 @@ body {
     overflow: hidden;
   }
 
-  h1#old {
-    margin: 0; /* get rid of the space at the top */
-    display: inline-block;
-    border: 2px solid;
-    border-radius: 0.4em;
-    padding: 0.5em 1em;
-  }
 }
 
 .footer {
@@ -48,4 +41,5 @@ body {
 }
 
 #content {
+  min-height: 60vh;
 }
