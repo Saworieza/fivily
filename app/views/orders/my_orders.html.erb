@@ -16,7 +16,7 @@
   <tbody> 
     <% @orders.each do |order| %>
       <tr> 
-        <td><%= order.date %></td>
+        <td><%= order.date.strftime("%B %d") %></td>
         <td><%= order.total_prics %></td>
         <td><%= order.comments %></td>
         <td><%= order.status %></td>

@@ -8,7 +8,6 @@ TO DO Before pushing to Heroku
 * Admin dashboard: all orders 
 * User dashboard: my orders - CHECK 
   - upgrade: get datetime to display correctly 
-  - 
 
 TH 2/19
 * to do

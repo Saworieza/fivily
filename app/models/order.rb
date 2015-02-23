@@ -5,6 +5,12 @@ class Order < ActiveRecord::Base
 
   belongs_to :user
 
+  after_initialize :default_values 
+
+  def default_values 
+    self.status = false if self.status.nil?
+  end 
+
   def subtotal
     #price 
     #@invoices_1_week.sum("total")
