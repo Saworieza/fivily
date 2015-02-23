@@ -3,6 +3,7 @@
 TO DO Before pushing to Heroku 
 * Make it so only admins can access All Orders 
 * Enable deletion of items on root page
+  * can delete items but will delete all items of same ID/name ... will look into limiting the DELETE 
 * When status changes to fulfilled, make new orderid
 
 TH 2/19
