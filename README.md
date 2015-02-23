@@ -1,13 +1,9 @@
 # READ ME
 
 TO DO Before pushing to Heroku 
-* API integration into views
-* E-mail confirmation to fivi when order is placed 
-* Order status in database - CHECK 
-  - Upgrade: Integrate order status into orders pages 
-* Admin dashboard: all orders 
-* User dashboard: my orders - CHECK 
-  - upgrade: get datetime to display correctly 
+* Make it so only admins can access All Orders 
+* Enable deletion of items on root page
+* When status changes to fulfilled, make new orderid
 
 TH 2/19
 * to do
