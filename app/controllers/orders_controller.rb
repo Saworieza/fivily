@@ -9,6 +9,9 @@ class OrdersController < ApplicationController
   def show 
 #    
   end 
+  def my_orders 
+    @orders = current_user.orders
+  end 
 
   def new 
     @order = Order.find(params[:order_id])

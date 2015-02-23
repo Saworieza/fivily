@@ -1,8 +1,23 @@
 # READ ME
 
-### Check list
+TO DO Before pushing to Heroku 
+* API integration into views
+* E-mail confirmation to fivi when order is placed 
+* Order status in database - CHECK 
+  - Upgrade: Integrate order status into orders pages 
+* Admin dashboard: all orders 
+* User dashboard: my orders - CHECK 
+  - upgrade: get datetime to display correctly 
+  - 
 
-# 
+TH 2/19
+* to do
+  * add some controller methods so that when orders gets updated with total prics, it also sends total prics to expenserizer 
+  * reroute view after order is created to "success" page (display order details on that)
+* nice to have: 
+ * ad.d ability for fivi to change order status from (in progress to fulfilled)
+ * add an admin dashboard that shows all orders 
+ * add a user dashboard that shows just that users orders 
 
 #### Wednesday 18 Feb - MKM notes
 * issues: 
@@ -11,17 +26,6 @@
     => In orders#index, we can get the subtotals to display 
     => But everyone user's info is there
   * Need to compile total prics data - FIXED
-
-TH 2/19
-* to do
-  * add some controller methods so that when orders gets updated with total prics, it also sends total prics to expenserizer 
-  * reroute view after order is created to "success" page (display order details on that)
-* nice to have: 
- * send e-mail confirmation to fivi when order is placed 
- * send e-mail confirmation to user when order is placed 
- * add ability for fivi to change order status from (in progress to fulfilled)
- * add an admin dashboard that shows all orders 
- * add a user dashboard that shows just that users orders 
 
 #### Tuesday, 17 Feb 2015: 
 

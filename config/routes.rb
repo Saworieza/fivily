@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'items#index'
+  get '/my_orders' => 'orders#my_orders', as: 'my_orders'
   resources :items 
    get 'orders/new/:order_id' => 'orders#new', as: :place_order
   resources :orders

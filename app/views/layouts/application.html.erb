@@ -21,9 +21,8 @@
           <span class="icon-bar"></span>
         </button>
           <%= link_to 'Menu', root_path, class: 'navbar-brand' %>
-          <%= link_to 'My Orders', orders_path, class: 'navbar-brand' %>
+          <%= link_to 'My Orders', my_orders_path, class: 'navbar-brand' %>
       </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %> 
             <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
@@ -33,7 +32,6 @@
             <li><%= link_to 'Login', new_user_session_path%></li>
           <% end %> 
         </ul> 
-      </div> 
     </div> 
   </nav> 
     
