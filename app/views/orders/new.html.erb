@@ -5,6 +5,7 @@
     <tr> 
       <th>Item Name</th>
       <th>Price</th>
+      <th>&nbsp;</th>
     </tr>
   </thead>  
   <tbody> 
@@ -12,11 +13,12 @@
       <tr> 
         <td><%= item.name %></td>
         <td><%= price_conversion(item.price) %></td>
+        <td><%= link_to "x", controller: 'orders', action: 'delete_item', id: @order.id, item_id: item.id %></td>
       </tr>
     <% end %>
     <tr>
       <th>Subtotal</th>
-      <td><%= price_conversion(@prics_galore) %></td>
+      <td colspan="2"><%= price_conversion(@prics_galore) %></td>
     </tr>
   </tbody>
 </table>

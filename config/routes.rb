@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
 #  post 'update_status' => 'orders#update_status', as: 'update_status'
   get 'update_status' => 'orders#update_status', as: 'update_status'
+  get 'delete_item' => 'orders#delete_item', as: 'delete_item'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

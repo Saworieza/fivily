@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
- before_action :set_order, only: [:update, :update_status]
+ before_action :set_order, only: [:update, :update_status, :delete_item]
  #before_action :authorize!, only: [:all_orders] 
 
   def index 
@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
    expense = ExpensesController.new
 
    @data = expense.index
+
 
   end 
 
@@ -61,6 +62,16 @@ class OrdersController < ApplicationController
     expense.create_expense(Time.now, @order.total_prics, 'screwboys2')
 
     redirect_to all_orders_path
+  end
+
+  def delete_item
+    @item_to_remove = @order.items.where(id: params[:item_id]).first
+    @order.items.delete(@item_to_remove)
+
+
+    redirect_to root_path, notice: 'Item successfully deleted!'
+
+    # @item = Item.find(params[:id])
   end
 
   def totalprics 
