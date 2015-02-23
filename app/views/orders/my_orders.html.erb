@@ -1,6 +1,5 @@
 <h1> My Orders </h1> 
 
-
 <!-- need to get this guy to display only order for current user -->
 
 <table class = "table table-striped">
@@ -19,13 +18,7 @@
         <td><%= order.date.try(:strftime("%B %d")) %></td>
         <td><%= order.total_prics %></td>
         <td><%= order.comments %></td>
-        <td><%= if order.status == false
-           "In progress"
-         elsif order.status == true 
-          "Fulfilled"
-        else 
-          "WTF is going on"
-        end  %></td>
+        <td><%= status(order.status) %></td>
         <td>
       </tr>
     <% end %>

@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
- before_action :set_order, only: [:update]
+ before_action :set_order, only: [:update, :update_status]
+ #before_action :authorize!, only: [:all_orders] 
 
   def index 
     @orders = Order.all 
@@ -9,13 +10,25 @@ class OrdersController < ApplicationController
   def show 
 #    
   end 
+
   def my_orders 
     @orders = current_user.orders
+  end 
+
+  def all_orders
+   @orders = Order.all
+
+   expense = ExpensesController.new
+
+   @data = expense.index
+
   end 
 
   def new 
     @order = Order.find(params[:order_id])
     @items = @order.items
+    @prics_galore = @order.items.sum("price")
+
     # @order_items = OrderItem.where("order_id=?", )
   end 
   
@@ -32,8 +45,23 @@ class OrdersController < ApplicationController
 
   def update 
     @order.update(order_params)
+   
+    Mailer.new_order(@order).deliver_now
+
     redirect_to root_path, notice: 'Order was successfully created!' 
   end 
+
+  def update_status
+#    @order.update_column(:status, true)
+    
+    @order = Order.find(params[:id])
+
+    @order.update_column(:status, true)
+    expense = ExpensesController.new
+    expense.create_expense(Time.now, @order.total_prics, 'screwboys2')
+
+    redirect_to all_orders_path
+  end
 
   def totalprics 
   end 
@@ -53,7 +81,7 @@ class OrdersController < ApplicationController
   end 
 
     def order_params 
-      params.require(:order).permit(:total_prics, :comments, :date, :user_id)
+      params.require(:order).permit(:total_prics, :comments, :date, :user_id, :status)
     end   
 
 end

@@ -1,7 +1,6 @@
-<pre>
 <% JSON.parse(@data).each do |expense| %>
-  <p><%= expense['category'] %>
+  <p>
+    <strong>Category:</strong> <%= expense['category'] %>
   <br /><strong><%= expense['date'] %></strong>: <%= expense['amount'] %></p>
   <hr />
 <% end %>
-</pre>

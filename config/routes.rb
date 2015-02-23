@@ -3,10 +3,19 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
   get '/my_orders' => 'orders#my_orders', as: 'my_orders'
+  get '/all_orders' => 'orders#all_orders', as: 'all_orders'
+
+
   resources :items 
    get 'orders/new/:order_id' => 'orders#new', as: :place_order
   resources :orders
   resources :expenses
+
+
+#  post 'update_status' => 'orders#update_status', as: 'update_status'
+  get 'update_status' => 'orders#update_status', as: 'update_status'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
