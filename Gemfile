@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.2'
+
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'awesome_print'
@@ -51,4 +53,7 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+gem 'rails_12factor', group: :production
+
 
