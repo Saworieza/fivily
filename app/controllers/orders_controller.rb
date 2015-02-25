@@ -50,8 +50,10 @@ class OrdersController < ApplicationController
     if !Mailer.smtp_settings['user_name'].blank?
       Mailer.new_order(@order).deliver_now
     end
+    
+    flash[:notice] =  'Order was successfully created!' 
 
-    redirect_to root_path, notice: 'Order was successfully created!' 
+    redirect_to root_path 
   end 
 
   def update_status
@@ -70,8 +72,9 @@ class OrdersController < ApplicationController
     @item_to_remove = @order.items.where(id: params[:item_id]).first
     @order.items.delete(@item_to_remove)
 
+flash[:notice] =  'Item was successfully deleted!' 
 
-    redirect_to root_path, notice: 'Item successfully deleted!'
+    redirect_to root_path
 
     # @item = Item.find(params[:id])
   end

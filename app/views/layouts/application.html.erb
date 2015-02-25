@@ -22,6 +22,7 @@
         </button>
           <%= link_to 'Menu', root_path, class: 'navbar-brand' %>
           <%= link_to 'My Orders', my_orders_path, class: 'navbar-brand' %>
+          <%= link_to 'All Orders', all_orders_path, class: 'navbar-brand' %>
       </div>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %> 
@@ -38,7 +39,7 @@
   <div class="container"> 
    <% flash.each do |name, msg| %> 
    <%= content_tag(:div, msg, class: "alert alert-info") %> 
-  <% end %>
+  <% end %> 
   </div>
 
 <header class="header">

@@ -5,6 +5,9 @@ class Order < ActiveRecord::Base
 
   belongs_to :user
 
+  scope :not_ordered, -> { where(total_prics: nil) }
+
+
   after_initialize :default_values 
 
   def default_values 

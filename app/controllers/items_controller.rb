@@ -48,7 +48,13 @@ private
   end
 
   def set_order 
-    @order = current_user.orders.first || current_user.orders.create 
+    # @order = current_user.orders.first || current_user.orders.create 
+
+    @order = current_user.orders.not_ordered.first || current_user.orders.create 
+    # if @order.total_prics != nil
+    #   @order = current_user.orders.create
+    # end
+
   end 
 
 
