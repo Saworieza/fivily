@@ -18,7 +18,7 @@
     <% @orders.each do |order| %>
       <tr> 
         <td><%= order.date.strftime("%B %d") %></td>
-        <td><%= order.total_prics %></td>
+        <td><%= price_conversion(order.total_prics) %></td>
         <td><%= order.comments %></td>
         <td><%= status(order.status) %></td>
         <td><%= link_to "Update", controller: 'orders', action: 'update_status', id: order.id %></td>
@@ -28,7 +28,8 @@
 </table> 
 
 
-<table class = "table table-striped">
+<h3>Expenses Sent To Expenserizer</h3>
+<table class="table table-striped">
   <thead>
     <tr> 
       <th>Date</th>
