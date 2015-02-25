@@ -47,4 +47,14 @@ class ExpensesController < ApplicationController
     run_request(request)
   end
 
+  def today 
+   request = Typhoeus::Request.new(
+    "https://guarded-caverns-1459.herokuapp.com/api/v1/expenses",
+    method: :get,
+    headers: { name: @name, token: @token },
+    params: { start_date: DateTime.now.to_date }
+  )
+    run_request(request)
+end
+
 end

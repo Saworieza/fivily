@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   resources :items 
    get 'orders/new/:order_id' => 'orders#new', as: :place_order
   resources :orders
+  
+  get 'expenses/today' => 'expenses#today'
   resources :expenses
-
 
 #  post 'update_status' => 'orders#update_status', as: 'update_status'
   get 'update_status' => 'orders#update_status', as: 'update_status'
