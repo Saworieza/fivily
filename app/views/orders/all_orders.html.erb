@@ -37,7 +37,7 @@
     </tr>
   </thead>  
   <tbody> 
-<% JSON.parse(@data).each do |expense| %>
+<% JSON.parse(@data).sort_by!{|h| h['date']}.reverse.each do |expense| %>
 <tr>
   <td><%= expense['date'] %></td>
   <td><%= expense['category'] %></td>

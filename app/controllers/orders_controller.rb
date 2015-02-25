@@ -47,7 +47,9 @@ class OrdersController < ApplicationController
   def update 
     @order.update(order_params)
    
-    Mailer.new_order(@order).deliver_now
+    if !Mailer.smtp_settings['user_name'].blank?
+      Mailer.new_order(@order).deliver_now
+    end
 
     redirect_to root_path, notice: 'Order was successfully created!' 
   end 
